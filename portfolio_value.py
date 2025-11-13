@@ -19,5 +19,3 @@ def get_portfolio_value(cash: float, long_ops: list[Operation], short_ops: list[
             port_val += (position.entry_price - y_p) * position.n_shares
 
     return port_val
-
-portfolio_value.py
