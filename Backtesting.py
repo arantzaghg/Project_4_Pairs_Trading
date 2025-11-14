@@ -2,8 +2,9 @@ from models import Operation
 from portfolio_value import get_portfolio_value
 from cointegration_functions import johansen
 from Kalman_structure import KalmanFilterReg
-import numpy as np
 import pandas as pd
+import numpy as np
+
 
 
 def backtest(data: pd.DataFrame,cash: float, initial_eig, theta) -> tuple[pd.Series, float, float, int, int, int, int, float]: 
@@ -65,7 +66,7 @@ def backtest(data: pd.DataFrame,cash: float, initial_eig, theta) -> tuple[pd.Ser
         hr = w1
         hr_values.append(hr)
 
-        p2_hat = w0 + w1 * p1
+        p2_hat = (p1 - w0) / w1
         p2_hat_values.append(p2_hat)
         p2_values.append(p2)
 
@@ -76,7 +77,7 @@ def backtest(data: pd.DataFrame,cash: float, initial_eig, theta) -> tuple[pd.Ser
 
         if post >= 252:
             try:
-                k_eig,, = johansen(data.iloc[post - 252:post, :])
+                k_eig, _, _ = johansen(data.iloc[post - 252:post, :])
             except:
                 pass
 

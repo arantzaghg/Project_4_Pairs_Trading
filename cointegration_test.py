@@ -7,6 +7,7 @@ from data_utils import split_data
 def cointegration_test():
     ticker = {
     "Clothing_and_Apparel": ["COLM", "CPRI", "DKS", "DECK", "BIRK", "ASO", "GES", "BOOT"],
+    "Financials":["MS", "SCHW", "CMA", "NTRS", "AMP", "BEN", "LPLA"],   
     "Airlines": ["CPA", "ALGT", "VLRS", "AER", "CHH"],
     "Food_and_Beverage": ["KHC", "HSY", "MNST", "CELH", "POST", "TAP"],
     "Entertainment_and_Media": ["NWSA", "CHTR", "SPOT", "IMAX",  "BILI"],
@@ -59,5 +60,5 @@ def cointegration_test():
     print(df_results)
     print(df_filtrado)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     cointegration_test()
