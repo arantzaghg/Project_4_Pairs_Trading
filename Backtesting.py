@@ -8,6 +8,19 @@ import numpy as np
 
 
 def backtest(data: pd.DataFrame,cash: float, initial_eig, theta) -> tuple[pd.Series, float, float, int, int, int, int, float]: 
+    """
+    Backtest a pairs trading strategy based on VECM and Kalman Filter hedge ratio.
+    
+    Parameters:
+    data (pd.DataFrame): DataFrame containing price data for two assets.
+    cash (float): Initial cash for the portfolio.
+    initial_eig: Initial eigenvector for the VECM.
+    theta (float): Threshold for opening and closing positions based on normalized VECM.
+    
+    Returns:
+    tuple: A tuple containing portfolio value series, final cash, trade statistics, p2 values
+           p2_hat values, vecm values, vecm_hat values, vecm_norm values, hr values, borrow costs, commission costs, and all trades.
+    """
     
     n_shares = 100
     COM = 0.125 / 100

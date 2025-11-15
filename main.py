@@ -14,7 +14,7 @@ def main():
     train_data, test_data = split_data(data)
     test_data_lp = add_overlay(train_data, test_data, overlay_size=252)
     eigenvector, _, _= johansen(train_data)
-    theta = 0.35
+    theta = 0.33
 
 
     # Backtesting
@@ -54,7 +54,7 @@ def main():
     # Plots
     plot_tickers(data)
     plot_portfolio_value(test_data_lp, portfolio_value)
-    plot_spread(test_data)
+    plot_spread(train_data)
     plot_real_vs_hat(test_data, p2_values, p2_hat_values)
     plot_vecm_norm(test_data, vecm_norm_values, theta)
     plot_real_vs_hat(test_data, vecm_values, vecm_hat_values)

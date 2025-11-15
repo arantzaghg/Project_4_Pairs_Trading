@@ -3,7 +3,6 @@ import pandas as pd
 
 
 def sharpe_ratio(portfolio_hist) -> float:
-
     """
     Calculate the Sharpe Ratio of a portfolio.
     
@@ -25,7 +24,6 @@ def sharpe_ratio(portfolio_hist) -> float:
 
 
 def sortino_ratio(portfolio_hist) -> float:
-
     """
     Calculate the Sortino Ratio of a portfolio.
     
@@ -47,7 +45,6 @@ def sortino_ratio(portfolio_hist) -> float:
     
 
 def maximum_drawdown(portfolio_hist) -> float:
-
     """
     Calculate the Maximum Drawdown of a portfolio.
     
@@ -66,7 +63,6 @@ def maximum_drawdown(portfolio_hist) -> float:
     
 
 def calmar_ratio(portfolio_hist) -> float:
-
     """
     Calculate the Calmar Ratio of a portfolio.
 
@@ -87,7 +83,6 @@ def calmar_ratio(portfolio_hist) -> float:
 
 
 def all_metrics(portfolio_value) -> pd.DataFrame:
-
     """
     Calculate all performance metrics for a portfolio.
     

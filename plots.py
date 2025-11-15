@@ -5,6 +5,12 @@ from models import Operation
 import statsmodels.api as st
 
 def plot_tickers(data: pd.DataFrame):
+    """
+    Plot the price data of two tickers.
+    
+    Parameters:
+    data : pd.DataFrame: A DataFrame with two columns representing the tickers' prices
+    """
 
     colors = ['cornflowerblue', 'rosybrown']
 
@@ -22,6 +28,13 @@ def plot_tickers(data: pd.DataFrame):
 
 
 def plot_portfolio_value(test_data: pd.DataFrame, portfolio_value: pd.Series):
+    """
+    Plot the portfolio value over time.
+
+    Parameters:
+    test_data : pd.DataFrame: The testing DataFrame containing the dates.
+    portfolio_value : pd.Series: Series representing the portfolio value over time.
+    """
 
     plt.figure(figsize=(8, 4))
     plt.plot(test_data.index, portfolio_value, label="Portfolio Value", color='cornflowerblue')
@@ -32,7 +45,14 @@ def plot_portfolio_value(test_data: pd.DataFrame, portfolio_value: pd.Series):
     plt.legend()
     plt.show()
 
+
 def plot_spread(data: pd.DataFrame):
+    """
+    Plot the spread between two tickers over time.
+
+    Parameters:
+    data : pd.DataFrame: A DataFrame with two columns representing the tickers' prices.
+    """
 
     data = data.copy()
     x_spread = st.add_constant(data.iloc[:, 0])
@@ -51,7 +71,17 @@ def plot_spread(data: pd.DataFrame):
     plt.grid()
     plt.legend()
     plt.show()
+
+
 def plot_vecm_norm(test_data: pd.DataFrame, vecm: pd.Series, theta: float):
+    """
+    Plot the normalized VECM values over time with threshold lines.
+
+    Parameters:
+    test_data : pd.DataFrame: The testing DataFrame containing the dates.
+    vecm : pd.Series: Series representing the normalized VECM values over time.
+    theta : float: The threshold value for plotting horizontal lines.
+    """
 
     plt.figure(figsize=(8, 4))
     plt.plot(test_data.index, vecm, label="VECM_Norm", color='cornflowerblue')
@@ -66,7 +96,15 @@ def plot_vecm_norm(test_data: pd.DataFrame, vecm: pd.Series, theta: float):
     plt.legend()
     plt.show()
 
+
 def plot_hr(test_data: pd.DataFrame, hr_values: pd.Series):
+    """
+    Plot the hedge ratio over time.
+
+    Parameters:
+    test_data : pd.DataFrame: The testing DataFrame containing the dates.
+    hr_values : pd.Series: Series representing the hedge ratio over time.
+    """
 
     plt.figure(figsize=(8, 4))
     plt.plot(test_data.index, hr_values, label="Hedge Ratio", color='cornflowerblue')
@@ -79,6 +117,14 @@ def plot_hr(test_data: pd.DataFrame, hr_values: pd.Series):
 
 
 def plot_real_vs_hat(data: pd.DataFrame, y_real, y_hat):
+    """
+    Plot the real vs predicted values.
+
+    Parameters:
+    data : pd.DataFrame: A DataFrame containing the dates.
+    y_real : pd.Series: Series representing the real values.
+    y_hat : pd.Series: Series representing the predicted values.
+    """
 
     plt.figure(figsize=(12, 4))
     plt.plot(data.index, y_real, label='Real', color='cornflowerblue', linewidth=2)
@@ -94,6 +140,12 @@ def plot_real_vs_hat(data: pd.DataFrame, y_real, y_hat):
 
 
 def plot_returns_distribution(all_trades: list[Operation]):
+    """
+    Plot the distribution of returns per trade.
+
+    Parameters:
+    all_trades : list[Operation]: A list of Operation objects representing all trades.
+    """
 
     returns = []
     for position in all_trades:
